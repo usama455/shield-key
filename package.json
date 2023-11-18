@@ -1,0 +1,12 @@
+{
+    "name": "strengthpass",
+    "version": "1.0.0",
+    "description": "A simple password strength checker npm package",
+    "main": "lib/index.js",
+    "scripts": {
+      "test": "node test/test.js"
+    },
+    "keywords": ["password", "strength", "checker", "security", "authentication", "password-policy", "password-validation", "npm", "node", "javascript"],
+    "author": "Muhammad Usama",
+    "license": "MIT"
+  }
