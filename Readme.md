@@ -24,7 +24,19 @@ const ShieldKey = require('shield-key');
 const password = 'SecureP@ss123';
 const strength = ShieldKey.checkPasswordStrength(password);
 
+// Example usage with custom length requirement (default is 8)
+const password = 'SecureP@ss123';
+const strength = ShieldKey.checkPasswordStrength(password);
+
 console.log(`Password strength: ${strength}`);
+
+// Example with custom length requirement (e.g., 10 characters)
+const password2 = 'StrongP@ss';
+const strength2 = PasswordStrengthChecker.checkPasswordStrength(password2, 10);
+
+console.log(`Password strength: ${strength2}`);
+
+
 ```
 
 ## Custom Policies
