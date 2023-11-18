@@ -1,5 +1,5 @@
 {
-    "name": "strengthpass",
+    "name": "shield-key",
     "version": "1.0.0",
     "description": "A simple password strength checker npm package",
     "main": "lib/index.js",
