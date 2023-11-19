@@ -18,26 +18,46 @@ npm install shield-key
 ```
 ## Usage
 
+### Basic Password Strength Check
+
+By default , length is 8 and 
 ```javascript
+
 const ShieldKey = require('shield-key');
 
 const password = 'SecureP@ss123';
-const strength = ShieldKey.checkPasswordStrength(password);
+const strength = ShieldKey.checkPasswordStrength(password, options);
 
-// Example usage with custom length requirement (default is 8)
-const password = 'SecureP@ss123';
-const strength = ShieldKey.checkPasswordStrength(password);
-
-console.log(`Password strength: ${strength}`);
-
-// Example with custom length requirement (e.g., 10 characters)
-const password2 = 'StrongP@ss';
-const strength2 = PasswordStrengthChecker.checkPasswordStrength(password2, 10);
-
-console.log(`Password strength: ${strength2}`);
-
+console.log(strength)
+// weak , medium , strong
 
 ```
+The checkPasswordStrength function evaluates the strength of a password based on predefined criteria, including the presence of uppercase and lowercase letters, numbers, special characters, and a minimum length of 8 characters.
+
+
+
+### Custom Password Verification
+``` javascript
+const PasswordStrengthChecker = require('password-strength-checker');
+
+// Example usage with custom criteria
+const password = 'SecureP@ss123';
+//default values are false for all except trimmed (which is true by default) . default length is 8
+const verificationOptions = {
+  uppercase: true,
+  lowercase: true,
+  number: true,
+  special: true,
+  length: 8,
+  trimmed: true,
+};
+
+const isValidPassword = PasswordStrengthChecker.customPasswordVerification(password, verificationOptions);
+//returns true or false based on provided values
+console.log(`Is password valid? ${isValidPassword ? 'Yes' : 'No'}`);
+
+```
+
 
 ## Custom Policies
 You can customize password strength policies to align with your application's security requirements. Here's an example:
@@ -55,6 +75,7 @@ const customStrength = ShieldKey.checkPasswordStrength('CustomP@ssw0rd', customP
 console.log(`Custom password strength: ${customStrength}`);
 
 ```
+The customPasswordVerification function allows you to perform custom password verification based on specified criteria. You can customize criteria such as requiring uppercase letters, lowercase letters, numbers, special characters, a minimum length, and whether to trim the input password.
 
 # Contributing
 We welcome contributions from the community! If you find a bug, have a feature request, or want to contribute code, please check out our contribution guidelines.
